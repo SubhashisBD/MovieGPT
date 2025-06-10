@@ -75,7 +75,7 @@ const Login = () => {
                 />
             </div>
 
-            <div className=" relative bg-black bg-opacity-80 w-3/12  mx-auto p-10 h-auto my-1/2 rounded-lg">
+            <div className=" relative bg-black bg-opacity-80 w-3/12  mx-auto p-10 h-auto my-1/2 top-48 rounded-lg">
                 <h2 className="text-white font-bold text-3xl mx-4">{IsSignIn ? "Sign In" : "Sign Up"}</h2>
                 <div className="flex flex-col items-center justify-center">
 
