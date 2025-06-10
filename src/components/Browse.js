@@ -6,7 +6,7 @@ import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
 
- useNowPlayingMovies();
+  const nowPlayingMovies = useNowPlayingMovies();
 
   return (
     <div>
