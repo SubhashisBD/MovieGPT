@@ -1,4 +1,3 @@
-import React from 'react'
 import useGetMoviesVideo from "../hooks/useGetMoviesVideo";
 import { useSelector } from "react-redux";
 
