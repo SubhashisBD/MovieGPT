@@ -15,8 +15,10 @@ const useNowPlayingMovies = () => {
         const response = await fetch(proxyUrl);
         const data = await response.json();
         const json = JSON.parse(data.contents)
-        // AllOrigins proxy wraps the API result in a `contents` field
-        console.log(json.results);
+
+        //* AllOrigins proxy wraps the API result in a `contents` field
+        // *console.log(json.results);
+        
         dispatch(addNowPlayingMovies(json.results));
 
     }
