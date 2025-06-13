@@ -11,3 +11,5 @@ export const API_OPTION = {
 export const API_KEY = "00bfff38e3de2c230d04083147e9339c"; // Your v3 API Key
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w300/";
+
+export const BACK_IMG = "https://assets.nflxext.com/ffe/siteui/vlv3/af2fac72-d956-4952-8686-4d45d359d78c/web/IN-en-20250526-TRIFECTA-perspective_5db3e163-56f7-47c7-9a65-b79b9d76bf24_large.jpg";
