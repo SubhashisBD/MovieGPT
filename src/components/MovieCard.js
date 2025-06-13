@@ -9,4 +9,4 @@ return (
   )
 }
 
-export default MovieCard
+export default MovieCard;
