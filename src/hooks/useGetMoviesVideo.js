@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addTrailerVideo } from "../utils/moviesSlice";
 
-// Fetch movies Trailer
+// *Fetch movies Trailer
 
 const useGetMoviesVideo = (movieId) => {
 
@@ -14,10 +14,9 @@ const useGetMoviesVideo = (movieId) => {
         const response = await fetch(proxyUrl);
         const data = await response.json();
         const json = JSON.parse(data.contents);
-        // console.log(json);
-        // console.log(json);
+        // *console.log(json);
         const filterMovieData = json.results.filter(movie=>movie.type==="Trailer");
-        const trailer = filterMovieData[1];
+        const trailer = filterMovieData[0];
         console.log(trailer.key);
         dispatch(addTrailerVideo(trailer));
     }
