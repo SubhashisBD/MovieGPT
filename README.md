@@ -33,6 +33,7 @@
         - Title & Description
         -Movie Suggestion
             -MovieList * N (Vertical Scrolling)
+            -N(no.Of Movies)
 
 -MovieGPT
     -Search Bar
