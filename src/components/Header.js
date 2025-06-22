@@ -4,17 +4,18 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO } from "../utils/constant";
+import { LOGO, SUPPORTED_LANGUAGE } from "../utils/constant";
 import { LogOut } from 'lucide-react';
 import { toggleGptSearch } from "../utils/gptSlice";
+import { changelanguage } from "../utils/configSlice";
 
 
 const Header = () => {
-    const dispatch = useDispatch();
-    
 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const user = useSelector(store => store.user);
+    const user = useSelector((store) => store.user);
+    const isGpt = useSelector((store) => store.gpt.gptSearch);
 
     const handleSignOut = () => {
         signOut(auth).then(() => { })
@@ -42,8 +43,12 @@ const Header = () => {
     }, [])
 
     // *GPT TOGGLE FUNCTION
-   const  handleGptToggle = () => {
-    dispatch(toggleGptSearch());
+    const handleGptToggle = () => {
+        dispatch(toggleGptSearch());
+    }
+
+    const handleLanguageChange = (e) => {
+        dispatch(changelanguage(e.target.value));
     }
 
     return (
@@ -52,11 +57,19 @@ const Header = () => {
                 className="w-36"
                 src={LOGO} alt="netflix_logo" />;
 
-            {user && (<div className="flex p-2">
-                <button className="bg-red-700 text-white rounded-lg px-4 py-2 mr-2" onClick={handleGptToggle}>GPT Search</button>
-                 <LogOut size={48} color="#e60000" strokeWidth={3} />
-                <button onClick={handleSignOut} className="text-white">(Sign Out)</button>
-            </div>)}
+            {user &&
+                (<div className="flex p-2">
+                    {isGpt &&
+                        (<select className="p-2 m-2 bg-gray-900 text-white " onChange={(e) => handleLanguageChange(e)}>
+                            {SUPPORTED_LANGUAGE.map((lang) => (
+                                <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>
+                            ))}
+                        </select>
+                        )}
+                    <button className="bg-red-700 text-white rounded-lg px-4 py-2 mr-2" onClick={handleGptToggle}>{isGpt?"Homepage":"GPT Search"}</button>
+                    <LogOut size={48} color="#e60000" strokeWidth={3} />
+                    <button onClick={handleSignOut} className="text-white">(Sign Out)</button>
+                </div>)}
         </div>
     );
 }
