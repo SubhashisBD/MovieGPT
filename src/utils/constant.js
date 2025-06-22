@@ -13,3 +13,10 @@ export const API_KEY = "00bfff38e3de2c230d04083147e9339c"; // Your v3 API Key
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w300/";
 
 export const BACK_IMG = "https://assets.nflxext.com/ffe/siteui/vlv3/af2fac72-d956-4952-8686-4d45d359d78c/web/IN-en-20250526-TRIFECTA-perspective_5db3e163-56f7-47c7-9a65-b79b9d76bf24_large.jpg";
+
+export const SUPPORTED_LANGUAGE = [
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" }
+];
+
+export const OPENAI_KEY = "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";
