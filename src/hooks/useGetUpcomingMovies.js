@@ -18,8 +18,8 @@ const useGetUpcomingMovies = () => {
 
         //* AllOrigins proxy wraps the API result in a `contents` field
         // *console.log(json.results);
-        console.log("GetTOPRated");
-        console.log(json);
+        
+       
         
         dispatch( addGetUpcomingMovies(json.results));
 
