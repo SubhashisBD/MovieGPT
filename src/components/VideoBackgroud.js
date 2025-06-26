@@ -8,12 +8,15 @@ const VideoBackgroud = ({ movieId }) => {
   // Fetch movies Trailer
   useGetMoviesVideo(movieId);
 
+  
+
   return (
-    <div className="w-screen absolute top-0 left-0 -z-20">
+    <div className="w-screen">
       <iframe
-        className="w-full aspect-video"
+        className="w-full aspect-video object-cover"
         src={"https://www.youtube.com/embed/" + trailerVideo?.key + "?&autoplay=1&mute=1"}
-        title="YouTube video player"   
+        title="YouTube video player" frameBorder="0" allow="accelerometer; fullscreen; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" 
+        
         ></iframe>
     </div>
   )
