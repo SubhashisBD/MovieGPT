@@ -8,7 +8,7 @@ export const API_OPTION = {
   }
 }
 
-export const API_KEY = "00bfff38e3de2c230d04083147e9339c"; // Your v3 API Key
+export const API_KEY = process.env.REACT_APP_TMDB_KEY; // Your v3 API Key
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w300/";
 
