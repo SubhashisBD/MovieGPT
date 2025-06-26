@@ -19,4 +19,4 @@ export const SUPPORTED_LANGUAGE = [
   { identifier: "hindi", name: "Hindi" }
 ];
 
-export const OPENAI_KEY = "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";
+export const GEMINI_KEY =  process.env.REACT_APP_GEMINI_KEY;
