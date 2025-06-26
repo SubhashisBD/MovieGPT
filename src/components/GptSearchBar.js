@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { BACK_IMG, GEMINI_KEY } from "../utils/constant";
+import { GEMINI_KEY } from "../utils/constant";
 import lang from "./languageConstant";
 import { useRef } from "react";
 import { addGptMoviesResult } from "../utils/gptSlice";
