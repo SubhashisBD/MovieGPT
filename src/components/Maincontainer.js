@@ -12,7 +12,7 @@ const mainMovie = movies[0];
 const {original_title,overview,id} = mainMovie;
 
     return(
-        <div className="relative w-full aspect-video">
+        <div className=" pt[-25%] bg-black w-screen aspect-video">
             <VideoTitle title = {original_title} overview = {overview}/>
             <VideoBackgroud movieId ={id}/>
         </div>
