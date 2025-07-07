@@ -8,8 +8,6 @@ const VideoBackgroud = ({ movieId }) => {
   // Fetch movies Trailer
   useGetMoviesVideo(movieId);
 
-  
-
   return (
     <div className="w-screen">
       <iframe

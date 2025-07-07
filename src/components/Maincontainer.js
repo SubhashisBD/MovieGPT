@@ -16,7 +16,7 @@ const {original_title,overview,id} = mainMovie;
             <VideoTitle title = {original_title} overview = {overview}/>
             <VideoBackgroud movieId ={id}/>
         </div>
-    )
+   )
 }
 
 export default MainContainer;

@@ -18,7 +18,7 @@ const Browse = () => {
   useGetUpcomingMovies();
 
   return (
-    <div>
+    <div className="movieList">
       <Header />
       {
         toggleGpt ? <GptSearch /> :
