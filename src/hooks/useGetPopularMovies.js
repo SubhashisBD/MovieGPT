@@ -1,11 +1,13 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addNowPlayingPopular } from "../utils/moviesSlice";
 
 
 const useGetPopularMovies = () => {
 
     const dispatch = useDispatch();
+
+    const nowPlayingPopular = useSelector((store)=>store.nowPlayingPopular)
 
     const getPopularMovies = async () => {
         const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=00bfff38e3de2c230d04083147e9339c';
@@ -17,7 +19,7 @@ const useGetPopularMovies = () => {
         dispatch(addNowPlayingPopular(json.results));
     }
     useEffect(() => {
-        getPopularMovies();
+        !nowPlayingPopular && getPopularMovies();
     }, [])
 }
 

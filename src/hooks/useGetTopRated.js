@@ -1,5 +1,5 @@
-import { useDispatch } from "react-redux";
-import {  addGetTopRated } from "../utils/moviesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addGetTopRated } from "../utils/moviesSlice";
 import { useEffect } from "react";
 
 // Fetch Data From TMDB API and Update the Store
@@ -8,6 +8,8 @@ import { useEffect } from "react";
 const useGetTopRated = () => {
 
     const dispatch = useDispatch();
+
+    const topRated = useSelector((store) => store.getTopRated)
 
     const getMovieApi = async () => {
         const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=00bfff38e3de2c230d04083147e9339c';
@@ -18,12 +20,12 @@ const useGetTopRated = () => {
 
         //* AllOrigins proxy wraps the API result in a `contents` field
         // *console.log(json.results);
-        
-        dispatch( addGetTopRated(json.results));
+
+        dispatch(addGetTopRated(json.results));
 
     }
     useEffect(() => {
-        getMovieApi();
+        !topRated && getMovieApi();
     }, []);
 }
 

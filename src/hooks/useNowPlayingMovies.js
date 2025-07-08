@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addNowPlayingMovies } from "../utils/moviesSlice";
 import { useEffect } from "react";
 
@@ -9,6 +9,8 @@ const useNowPlayingMovies = () => {
 
     const dispatch = useDispatch();
 
+    const nowPlayingMovies = useSelector((store) => store.nowPlayingMovies)
+
     const getMovieApi = async () => {
         const url = 'https://api.themoviedb.org/3/movie/now_playing?page=1&api_key=00bfff38e3de2c230d04083147e9339c';
         const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url);
@@ -18,12 +20,12 @@ const useNowPlayingMovies = () => {
 
         //* AllOrigins proxy wraps the API result in a `contents` field
         // *console.log(json.results);
-        
+
         dispatch(addNowPlayingMovies(json.results));
 
     }
     useEffect(() => {
-        getMovieApi();
+        !nowPlayingMovies && getMovieApi();
     }, []);
 }
 
