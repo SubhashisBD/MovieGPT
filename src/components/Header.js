@@ -52,24 +52,33 @@ const Header = () => {
     }
 
     return (
-        <div className=" absolute px-14 py-2 bg-gradient-to-b from-black/20 to-transparent z-20 w-screen flex justify-between">
+        <div className=" absolute px-14 py-2 bg-gradient-to-b from-black to-transparent z-20 w-screen flex justify-between flex-col md:flex-row">
             <img
-                className="w-36"
-                src={LOGO} alt="netflix_logo" />;
+                className="w-36 mx-auto md:mx-0"
+                src={LOGO} alt="netflix_logo " />;
 
             {user &&
-                (<div className="flex p-2">
-                    {isGpt &&
-                        (<select className="p-2 m-2 bg-gray-900 text-white " onChange={(e) => handleLanguageChange(e)}>
-                            {SUPPORTED_LANGUAGE.map((lang) => (
-                                <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>
-                            ))}
-                        </select>
+                (<div className="flex p-2 justify-between items-center">
+                    <div className="w-32">
+                        {isGpt && (
+                            <select className="p-2 bg-gray-900 text-white" onChange={(e) => handleLanguageChange(e)}>
+                                {SUPPORTED_LANGUAGE.map((lang) => (
+                                    <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>
+                                ))}
+                            </select>
                         )}
-                    <button className="bg-red-700 text-white rounded-lg px-4 py-2 mr-2" onClick={handleGptToggle}>{isGpt?"Homepage":"GPT Search"}</button>
-                    <LogOut size={48} color="#e60000" strokeWidth={3} />
-                    <button onClick={handleSignOut} className="text-white">(Sign Out)</button>
-                </div>)}
+                    </div>
+
+                    <button className="bg-red-700 text-white rounded-lg px-3 md:px-3 py-3 md:py-2" onClick={handleGptToggle}>
+                        {isGpt ? "Homepage" : "GPT Search"}
+                    </button>
+
+                    <div className="flex items-center w-32 justify-end">
+                        <LogOut className="hidden md:block mr-2" size={48} color="#e60000" strokeWidth={3} />
+                        <button onClick={handleSignOut} className="text-white">(Sign Out)</button>
+                    </div>
+                </div>)
+            }
         </div>
     );
 }
