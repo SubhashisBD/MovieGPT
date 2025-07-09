@@ -18,9 +18,6 @@ const useGetTopRated = () => {
         const data = await response.json();
         const json = JSON.parse(data.contents)
 
-        //* AllOrigins proxy wraps the API result in a `contents` field
-        // *console.log(json.results);
-
         dispatch(addGetTopRated(json.results));
 
     }
